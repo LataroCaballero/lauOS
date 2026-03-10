@@ -29,12 +29,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Lautaro can log out from any page and is redirected to the login screen
   4. Lautaro can view and edit his display name and avatar from a profile page
   5. PocketBase is running under systemd on the VPS, bound to localhost behind Nginx TLS, and survives a reboot without intervention
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: VPS + PocketBase infrastructure (systemd, Nginx TLS, CORS, backups, encryption key)
-- [ ] 01-02: Next.js project scaffold (App Router, TypeScript, shadcn/ui + Tailwind v4, PocketBase client factory, env vars)
-- [ ] 01-03: Authentication flows (login page, cookie sync, middleware auth gate, logout, profile page)
+- [ ] 01-01-PLAN.md — VPS + PocketBase infrastructure: systemd service, Nginx TLS via Certbot, CORS config, local Mac dev setup
+- [ ] 01-02-PLAN.md — Next.js scaffold: App Router, TypeScript, Tailwind v4, shadcn/ui, PocketBase two-client factory, Playwright test infrastructure
+- [ ] 01-03-PLAN.md — Auth flows: split-screen login page, middleware route protection + silent refresh, logout, /settings with display name + password change
 
 ### Phase 2: Dashboard Shell
 **Goal**: Lautaro has a fully navigable dashboard shell where every module entry point is accessible, dark/light mode works, and the layout is usable on mobile.
