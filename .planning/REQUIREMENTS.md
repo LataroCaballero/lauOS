@@ -18,7 +18,7 @@
 - [x] **SHLL-02**: Página home con grid de widgets clickeables (una card por módulo disponible)
 - [x] **SHLL-03**: Toggle dark/light mode con preferencia persistente
 - [x] **SHLL-04**: Layout responsive usable en mobile
-- [ ] **SHLL-05**: Color de acento personalizable desde configuración, persistido en perfil de usuario
+- [x] **SHLL-05**: Color de acento personalizable desde configuración, persistido en perfil de usuario
 
 ### Finance — Accounts
 
@@ -101,7 +101,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SHLL-02 | Phase 2 | Complete |
 | SHLL-03 | Phase 2 | Complete |
 | SHLL-04 | Phase 2 | Complete |
-| SHLL-05 | Phase 2 | Pending |
+| SHLL-05 | Phase 2 | Complete |
 | ACCT-01 | Phase 3 | Pending |
 | ACCT-02 | Phase 3 | Pending |
 | ACCT-03 | Phase 3 | Pending |

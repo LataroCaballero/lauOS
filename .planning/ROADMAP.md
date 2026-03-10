@@ -13,7 +13,7 @@ lauOS is built in four sequential phases, each delivering a coherent and verifia
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation + Auth** - PocketBase on VPS, Next.js scaffold, and working login with persistent session (completed 2026-03-10)
-- [ ] **Phase 2: Dashboard Shell** - Navbar, module grid, dark mode, and responsive layout
+- [x] **Phase 2: Dashboard Shell** - Navbar, module grid, dark mode, and responsive layout (completed 2026-03-10)
 - [ ] **Phase 3: Finance — Data** - Accounts, transactions, and categories with full CRUD
 - [ ] **Phase 4: Finance — Insights** - Monthly summaries, category charts, balance timeline, and filtered transaction list
 
@@ -95,6 +95,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation + Auth | 3/3 | Complete   | 2026-03-10 |
-| 2. Dashboard Shell | 2/3 | In Progress|  |
+| 2. Dashboard Shell | 3/3 | Complete   | 2026-03-10 |
 | 3. Finance — Data | 0/4 | Not started | - |
 | 4. Finance — Insights | 0/2 | Not started | - |
