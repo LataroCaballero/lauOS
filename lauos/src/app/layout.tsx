@@ -19,6 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `
+    try {
+      var t = JSON.parse(localStorage.getItem('lauos-theme') || '{}');
+      if (t.state && t.state.isDark) document.documentElement.classList.add('dark');
+    } catch(e) {}
+  ` }} />
+      </head>
       <body className={`${inter.className} antialiased`}>
         <Toaster richColors position="top-right" />
         {children}
