@@ -8,7 +8,7 @@ export default defineConfig({
   workers: 1,
   reporter: 'list',
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://localhost:3005',
     trace: 'on-first-retry',
   },
   projects: [
@@ -19,8 +19,8 @@ export default defineConfig({
   ],
   // Starts the Next.js dev server before running tests
   webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:3000',
+    command: 'npm run dev -- -p 3005',
+    url: 'http://localhost:3005',
     reuseExistingServer: !process.env.CI,
     timeout: 120000,
   },
