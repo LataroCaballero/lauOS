@@ -21,8 +21,20 @@ export async function loginAction(
     return { error: 'Invalid email or password.' }
   }
 
+  // exportToCookie returns "pb_auth=<url-encoded-json>" — we store just the value portion
+  // so that loadFromCookie('pb_auth=<value>') can reconstruct the full auth state
+  const cookieHeader = pb.authStore.exportToCookie({
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    path: '/',
+    // httpOnly not supported by exportToCookie options — we set it via cookieStore.set below
+  })
+  // cookieHeader is "pb_auth=<encoded-value>; Path=/; ..."
+  // extract just the encoded value (everything between "pb_auth=" and the first ";")
+  const cookieValue = cookieHeader.split(';')[0].replace(/^pb_auth=/, '')
+
   const cookieStore = await cookies()
-  cookieStore.set('pb_auth', pb.authStore.token, {
+  cookieStore.set('pb_auth', cookieValue, {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',
