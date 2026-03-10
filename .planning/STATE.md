@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Phase 1 context gathered
-last_updated: "2026-03-10T00:59:15.697Z"
+stopped_at: Completed 01-foundation-auth-02-PLAN.md
+last_updated: "2026-03-10T13:25:22.324Z"
 last_activity: 2026-03-09 — Roadmap created
 progress:
   total_phases: 4
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
+  total_plans: 3
+  completed_plans: 1
   percent: 0
 ---
 
@@ -50,6 +50,7 @@ Progress: [░░░░░░░░░░] 0%
 - Trend: —
 
 *Updated after each plan completion*
+| Phase 01-foundation-auth P02 | 8 | 2 tasks | 29 files |
 
 ## Accumulated Context
 
@@ -62,6 +63,8 @@ Recent decisions affecting current work:
 - [Roadmap]: All monetary amounts stored as integer centavos (×100) in PocketBase — never floats; schema is immutable after data exists
 - [Roadmap]: Exchange rates for USD transactions stored immutably at transaction time — no auto-recalculation with current rates
 - [Roadmap]: Claude Stats module moved to v2 — Anthropic Admin API requires org account confirmation before scoping; Finance is the safer first module
+- [Phase 01-foundation-auth]: Next.js 16 (latest) used; create-next-app@latest installs 16, Node 20 required and used via nvm
+- [Phase 01-foundation-auth]: Two-client PocketBase pattern established: createBrowserClient (singleton + onChange cookie sync) and createServerClient (per-request, reads pb_auth, server-only guard)
 
 ### Pending Todos
 
@@ -74,6 +77,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-10T00:59:15.695Z
-Stopped at: Phase 1 context gathered
-Resume file: .planning/phases/01-foundation-auth/01-CONTEXT.md
+Last session: 2026-03-10T13:25:22.322Z
+Stopped at: Completed 01-foundation-auth-02-PLAN.md
+Resume file: None

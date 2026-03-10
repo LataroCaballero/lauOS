@@ -7,10 +7,10 @@
 
 ### Authentication
 
-- [ ] **AUTH-01**: Usuario puede iniciar sesión con email y contraseña
-- [ ] **AUTH-02**: La sesión persiste al refrescar el browser o abrir nuevas pestañas
-- [ ] **AUTH-03**: Usuario puede cerrar sesión desde cualquier página
-- [ ] **AUTH-04**: Usuario puede ver y editar su perfil (nombre y avatar)
+- [x] **AUTH-01**: Usuario puede iniciar sesión con email y contraseña
+- [x] **AUTH-02**: La sesión persiste al refrescar el browser o abrir nuevas pestañas
+- [x] **AUTH-03**: Usuario puede cerrar sesión desde cualquier página
+- [x] **AUTH-04**: Usuario puede ver y editar su perfil (nombre y avatar)
 
 ### Shell
 
@@ -93,10 +93,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AUTH-01 | Phase 1 | Pending |
-| AUTH-02 | Phase 1 | Pending |
-| AUTH-03 | Phase 1 | Pending |
-| AUTH-04 | Phase 1 | Pending |
+| AUTH-01 | Phase 1 | Complete |
+| AUTH-02 | Phase 1 | Complete |
+| AUTH-03 | Phase 1 | Complete |
+| AUTH-04 | Phase 1 | Complete |
 | SHLL-01 | Phase 2 | Pending |
 | SHLL-02 | Phase 2 | Pending |
 | SHLL-03 | Phase 2 | Pending |
