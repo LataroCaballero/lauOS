@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-stopped_at: Completed 01-foundation-auth-01-01-PLAN.md
-last_updated: "2026-03-10T00:00:00.000Z"
+status: executing
+stopped_at: "Checkpoint:human-verify in 01-03-PLAN.md (Task 3 — awaiting manual auth verification)"
+last_updated: "2026-03-10T14:00:06.088Z"
 last_activity: 2026-03-10 — Plan 01-01 complete (VPS + PocketBase infra)
 progress:
   total_phases: 4
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 3
-  completed_plans: 1
+  completed_plans: 3
   percent: 8
 ---
 
@@ -68,6 +68,7 @@ Recent decisions affecting current work:
 - [01-01]: CORS configured for http://localhost:3005 (not 3000 — port 3000 taken by another project on VPS); Next.js dev server must run on port 3005
 - [01-01]: PocketBase token duration set to 365 days (31536000s) — single-user "always logged in" UX, no auto-expiry
 - [01-01]: PocketBase v0.36.6 pinned on VPS and Mac — do not upgrade without reviewing breaking changes
+- [Phase 01-foundation-auth]: Both toast AND inline error on failed login — locked user decision; middleware uses authRefresh() for silent token renewal without maxAge
 
 ### Pending Todos
 
@@ -80,6 +81,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-10T00:00:00.000Z
-Stopped at: Completed 01-foundation-auth-01-01-PLAN.md
+Last session: 2026-03-10T14:00:06.049Z
+Stopped at: Checkpoint:human-verify in 01-03-PLAN.md (Task 3 — awaiting manual auth verification)
 Resume file: None
