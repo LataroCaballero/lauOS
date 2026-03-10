@@ -95,6 +95,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation + Auth | 3/3 | Complete   | 2026-03-10 |
-| 2. Dashboard Shell | 1/3 | In Progress|  |
+| 2. Dashboard Shell | 2/3 | In Progress|  |
 | 3. Finance — Data | 0/4 | Not started | - |
 | 4. Finance — Insights | 0/2 | Not started | - |

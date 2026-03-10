@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: 02-01-PLAN.md complete — human checkpoint approved — proceeding to 02-02
-last_updated: "2026-03-10T21:06:24.978Z"
+stopped_at: Completed 02-02-PLAN.md (dark mode theme system)
+last_updated: "2026-03-10T21:11:25.979Z"
 last_activity: 2026-03-10 — Plan 02-01 complete (protected shell — navbar, bottom nav, module grid)
 progress:
   total_phases: 4
   completed_phases: 1
   total_plans: 6
-  completed_plans: 4
+  completed_plans: 5
   percent: 14
 ---
 
@@ -52,6 +52,7 @@ Progress: [██░░░░░░░░] 14%
 *Updated after each plan completion*
 | Phase 01-foundation-auth P02 | 8 | 2 tasks | 29 files |
 | Phase 01-foundation-auth P03 | 35 | 3 tasks | 9 files |
+| Phase 02-dashboard-shell P02 | 15 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -76,6 +77,9 @@ Recent decisions affecting current work:
 - [02-01]: NavLinks extracted as separate 'use client' sub-component so Navbar stays a Server Component (usePathname not available in RSC)
 - [02-01]: ThemeToggle is a stub (renders Sun icon, no-op) — will be wired to Zustand theme store in Plan 02-02
 - [02-01]: PocketBase users collection requires accent (Text) and avatar (File) fields — must be added manually before Plans 02-02/02-03
+- [Phase 02-dashboard-shell]: Zustand persist partialize: only isDark persisted to localStorage — accent always sourced from PocketBase
+- [Phase 02-dashboard-shell]: Flash-prevention inline script in <head> reads lauos-theme.state.isDark before React hydrates
+- [Phase 02-dashboard-shell]: AccentColor locked to yellow|blue|green|purple|red|orange, default yellow
 
 ### Pending Todos
 
@@ -88,6 +92,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-10T21:06:24.976Z
-Stopped at: 02-01-PLAN.md complete — human checkpoint approved — proceeding to 02-02
+Last session: 2026-03-10T21:11:25.977Z
+Stopped at: Completed 02-02-PLAN.md (dark mode theme system)
 Resume file: None
