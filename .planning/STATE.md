@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 2 context gathered
-last_updated: "2026-03-10T20:36:13.523Z"
-last_activity: 2026-03-10 — Plan 01-01 complete (VPS + PocketBase infra)
+stopped_at: "02-01-PLAN.md complete — awaiting human-verify checkpoint"
+last_updated: "2026-03-10T21:03:00Z"
+last_activity: 2026-03-10 — Plan 02-01 complete (dashboard shell — navbar, bottom nav, module grid)
 progress:
   total_phases: 4
   completed_phases: 1
   total_plans: 3
-  completed_plans: 3
-  percent: 8
+  completed_plans: 4
+  percent: 14
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-09)
 
 **Core value:** El usuario puede ver y gestionar los aspectos clave de su día a día desde un único lugar, sin depender de apps de terceros.
-**Current focus:** Phase 1 — Foundation + Auth
+**Current focus:** Phase 2 — Dashboard Shell
 
 ## Current Position
 
-Phase: 1 of 4 (Foundation + Auth)
-Plan: 1 of 3 in current phase (01-01 complete)
+Phase: 2 of 4 (Dashboard Shell)
+Plan: 1 of 3 in current phase (02-01 complete, awaiting checkpoint verification)
 Status: In progress
-Last activity: 2026-03-10 — Plan 01-01 complete (VPS + PocketBase infra)
+Last activity: 2026-03-10 — Plan 02-01 complete (protected shell — navbar, bottom nav, module grid)
 
-Progress: [█░░░░░░░░░] 8%
+Progress: [██░░░░░░░░] 14%
 
 ## Performance Metrics
 
@@ -72,6 +72,10 @@ Recent decisions affecting current work:
 - [Phase 01-foundation-auth]: Both toast AND inline error on failed login — locked user decision; middleware uses authRefresh() for silent token renewal without maxAge
 - [Phase 01-foundation-auth]: Store exportToCookie() JSON payload (not raw JWT) in pb_auth cookie — loadFromCookie requires full PocketBase model+token JSON to reconstruct isValid auth state
 - [Phase 01-foundation-auth]: Inter font replaces Geist/Geist_Mono defaults in layout.tsx for lauOS typography
+- [02-01]: MODULES array in src/lib/modules.ts is single source of truth for nav links and card grid — add a Module object to populate both
+- [02-01]: NavLinks extracted as separate 'use client' sub-component so Navbar stays a Server Component (usePathname not available in RSC)
+- [02-01]: ThemeToggle is a stub (renders Sun icon, no-op) — will be wired to Zustand theme store in Plan 02-02
+- [02-01]: PocketBase users collection requires accent (Text) and avatar (File) fields — must be added manually before Plans 02-02/02-03
 
 ### Pending Todos
 
@@ -84,6 +88,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-10T20:36:13.521Z
-Stopped at: Phase 2 context gathered
-Resume file: .planning/phases/02-dashboard-shell/02-CONTEXT.md
+Last session: 2026-03-10T21:03:00Z
+Stopped at: 02-01-PLAN.md complete — awaiting human-verify checkpoint
+Resume file: .planning/phases/02-dashboard-shell/02-01-SUMMARY.md

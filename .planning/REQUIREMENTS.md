@@ -14,10 +14,10 @@
 
 ### Shell
 
-- [ ] **SHLL-01**: Top navbar muestra links a módulos, nombre de usuario y opción de logout
-- [ ] **SHLL-02**: Página home con grid de widgets clickeables (una card por módulo disponible)
+- [x] **SHLL-01**: Top navbar muestra links a módulos, nombre de usuario y opción de logout
+- [x] **SHLL-02**: Página home con grid de widgets clickeables (una card por módulo disponible)
 - [ ] **SHLL-03**: Toggle dark/light mode con preferencia persistente
-- [ ] **SHLL-04**: Layout responsive usable en mobile
+- [x] **SHLL-04**: Layout responsive usable en mobile
 - [ ] **SHLL-05**: Color de acento personalizable desde configuración, persistido en perfil de usuario
 
 ### Finance — Accounts
@@ -97,10 +97,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUTH-02 | Phase 1 | Complete |
 | AUTH-03 | Phase 1 | Complete |
 | AUTH-04 | Phase 1 | Complete |
-| SHLL-01 | Phase 2 | Pending |
-| SHLL-02 | Phase 2 | Pending |
+| SHLL-01 | Phase 2 | Complete |
+| SHLL-02 | Phase 2 | Complete |
 | SHLL-03 | Phase 2 | Pending |
-| SHLL-04 | Phase 2 | Pending |
+| SHLL-04 | Phase 2 | Complete |
 | SHLL-05 | Phase 2 | Pending |
 | ACCT-01 | Phase 3 | Pending |
 | ACCT-02 | Phase 3 | Pending |
