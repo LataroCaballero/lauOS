@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — VPS + PocketBase infrastructure: systemd service, Nginx TLS via Certbot, CORS config, local Mac dev setup
+- [x] 01-01-PLAN.md — VPS + PocketBase infrastructure: systemd service, Nginx TLS via Certbot, CORS config, local Mac dev setup
 - [ ] 01-02-PLAN.md — Next.js scaffold: App Router, TypeScript, Tailwind v4, shadcn/ui, PocketBase two-client factory, Playwright test infrastructure
 - [ ] 01-03-PLAN.md — Auth flows: split-screen login page, middleware route protection + silent refresh, logout, /settings with display name + password change
 
@@ -93,7 +93,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation + Auth | 1/3 | In Progress|  |
+| 1. Foundation + Auth | 2/3 | In Progress|  |
 | 2. Dashboard Shell | 0/2 | Not started | - |
 | 3. Finance — Data | 0/4 | Not started | - |
 | 4. Finance — Insights | 0/2 | Not started | - |

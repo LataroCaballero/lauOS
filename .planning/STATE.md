@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 01-foundation-auth-02-PLAN.md
-last_updated: "2026-03-10T13:25:22.324Z"
-last_activity: 2026-03-09 — Roadmap created
+stopped_at: Completed 01-foundation-auth-01-01-PLAN.md
+last_updated: "2026-03-10T00:00:00.000Z"
+last_activity: 2026-03-10 — Plan 01-01 complete (VPS + PocketBase infra)
 progress:
   total_phases: 4
   completed_phases: 0
   total_plans: 3
   completed_plans: 1
-  percent: 0
+  percent: 8
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-03-09)
 ## Current Position
 
 Phase: 1 of 4 (Foundation + Auth)
-Plan: 0 of 3 in current phase
-Status: Ready to plan
-Last activity: 2026-03-09 — Roadmap created
+Plan: 1 of 3 in current phase (01-01 complete)
+Status: In progress
+Last activity: 2026-03-10 — Plan 01-01 complete (VPS + PocketBase infra)
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [█░░░░░░░░░] 8%
 
 ## Performance Metrics
 
@@ -65,6 +65,9 @@ Recent decisions affecting current work:
 - [Roadmap]: Claude Stats module moved to v2 — Anthropic Admin API requires org account confirmation before scoping; Finance is the safer first module
 - [Phase 01-foundation-auth]: Next.js 16 (latest) used; create-next-app@latest installs 16, Node 20 required and used via nvm
 - [Phase 01-foundation-auth]: Two-client PocketBase pattern established: createBrowserClient (singleton + onChange cookie sync) and createServerClient (per-request, reads pb_auth, server-only guard)
+- [01-01]: CORS configured for http://localhost:3005 (not 3000 — port 3000 taken by another project on VPS); Next.js dev server must run on port 3005
+- [01-01]: PocketBase token duration set to 365 days (31536000s) — single-user "always logged in" UX, no auto-expiry
+- [01-01]: PocketBase v0.36.6 pinned on VPS and Mac — do not upgrade without reviewing breaking changes
 
 ### Pending Todos
 
@@ -72,11 +75,11 @@ None yet.
 
 ### Blockers/Concerns
 
-- [Phase 1]: VPS provider, domain/subdomain for PocketBase, and Nginx TLS specifics must be determined before plan execution — not covered in research
+- [RESOLVED 01-01]: VPS provider, domain/subdomain for PocketBase, and Nginx TLS specifics — resolved; infrastructure complete
 - [Future]: Anthropic Admin API requires org account (not individual). Must confirm `console.anthropic.com/settings/organization` before Claude Stats module can be scoped for v2
 
 ## Session Continuity
 
-Last session: 2026-03-10T13:25:22.322Z
-Stopped at: Completed 01-foundation-auth-02-PLAN.md
+Last session: 2026-03-10T00:00:00.000Z
+Stopped at: Completed 01-foundation-auth-01-01-PLAN.md
 Resume file: None
