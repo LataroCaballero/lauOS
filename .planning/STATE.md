@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: "Checkpoint:human-verify in 01-03-PLAN.md (Task 3 — awaiting manual auth verification)"
-last_updated: "2026-03-10T14:00:06.088Z"
+stopped_at: Completed 01-03-PLAN.md — Phase 1 auth complete
+last_updated: "2026-03-10T14:17:21.549Z"
 last_activity: 2026-03-10 — Plan 01-01 complete (VPS + PocketBase infra)
 progress:
   total_phases: 4
@@ -51,6 +51,7 @@ Progress: [█░░░░░░░░░] 8%
 
 *Updated after each plan completion*
 | Phase 01-foundation-auth P02 | 8 | 2 tasks | 29 files |
+| Phase 01-foundation-auth P03 | 35 | 3 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,8 @@ Recent decisions affecting current work:
 - [01-01]: PocketBase token duration set to 365 days (31536000s) — single-user "always logged in" UX, no auto-expiry
 - [01-01]: PocketBase v0.36.6 pinned on VPS and Mac — do not upgrade without reviewing breaking changes
 - [Phase 01-foundation-auth]: Both toast AND inline error on failed login — locked user decision; middleware uses authRefresh() for silent token renewal without maxAge
+- [Phase 01-foundation-auth]: Store exportToCookie() JSON payload (not raw JWT) in pb_auth cookie — loadFromCookie requires full PocketBase model+token JSON to reconstruct isValid auth state
+- [Phase 01-foundation-auth]: Inter font replaces Geist/Geist_Mono defaults in layout.tsx for lauOS typography
 
 ### Pending Todos
 
@@ -81,6 +84,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-10T14:00:06.049Z
-Stopped at: Checkpoint:human-verify in 01-03-PLAN.md (Task 3 — awaiting manual auth verification)
+Last session: 2026-03-10T14:17:21.547Z
+Stopped at: Completed 01-03-PLAN.md — Phase 1 auth complete
 Resume file: None
