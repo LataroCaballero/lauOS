@@ -39,3 +39,33 @@ export async function updatePasswordAction(
     return { success: false, error: 'Current password is incorrect.' }
   }
 }
+
+export async function updateAccentAction(
+  userId: string,
+  accent: string
+): Promise<{ error?: string }> {
+  try {
+    const pb = await createServerClient()
+    await pb.collection('users').update(userId, { accent })
+    revalidatePath('/', 'layout')
+    return {}
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : 'Failed to save accent'
+    return { error: msg }
+  }
+}
+
+export async function updateAvatarAction(
+  userId: string,
+  formData: FormData
+): Promise<{ error?: string }> {
+  try {
+    const pb = await createServerClient()
+    await pb.collection('users').update(userId, formData)
+    revalidatePath('/', 'layout')
+    return {}
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : 'Failed to upload avatar'
+    return { error: msg }
+  }
+}
