@@ -46,11 +46,12 @@ Plans:
   3. Toggling dark/light mode applies immediately and persists across page refreshes and new tabs
   4. The dashboard layout is usable on a mobile screen (no horizontal scroll, no clipped content)
   5. Lautaro can change his accent color in settings and the change is reflected across the UI and persists after a refresh
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: Dashboard layout (route groups, protected layout with navbar, module card grid on home)
-- [ ] 02-02: Theme system (dark/light mode toggle with Zustand + localStorage persistence, accent color customization persisted to PocketBase profile)
+- [ ] 02-01-PLAN.md — Layout shell: test scaffold, protected layout, navbar, bottom nav, module card grid, placeholder routes
+- [ ] 02-02-PLAN.md — Dark mode: Zustand theme store, ThemeProvider, flash-prevention script, wired toggle
+- [ ] 02-03-PLAN.md — Settings: tabbed profile/appearance page, avatar crop-and-upload, accent color swatches + PocketBase persistence
 
 ### Phase 3: Finance — Data
 **Goal**: Lautaro can create and manage accounts in ARS and USD, record every type of transaction (income, expense, transfer) with categories, and always see accurate balances per account.
