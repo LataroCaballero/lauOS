@@ -97,8 +97,6 @@ export function TransactionForm({
           amountCentavos,
           date,
           note: note || undefined,
-          // userId passed from client — actions validates authStore internally
-          userId: '',
         })
         if (result.error) {
           setError(result.error)

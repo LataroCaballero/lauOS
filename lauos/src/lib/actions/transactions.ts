@@ -90,17 +90,17 @@ export async function createTransferAction(data: {
   amountCentavos: number
   date: string
   note?: string
-  userId: string
 }): Promise<{ error?: string }> {
   const pb = await createServerClient()
   if (!pb.authStore.isValid) return { error: 'Not authenticated' }
 
+  const userId = pb.authStore.record?.id
   let outRecordId: string | null = null
 
   try {
     // Step 1: Create transfer_out with empty transfer_pair_id initially
     const outRecord = await pb.collection('transactions').create({
-      user: data.userId,
+      user: userId,
       account: data.fromAccountId,
       type: 'transfer_out',
       amount_centavos: data.amountCentavos,
@@ -112,7 +112,7 @@ export async function createTransferAction(data: {
 
     // Step 2: Create transfer_in referencing the out record
     const inRecord = await pb.collection('transactions').create({
-      user: data.userId,
+      user: userId,
       account: data.toAccountId,
       type: 'transfer_in',
       amount_centavos: data.amountCentavos,
