@@ -22,24 +22,24 @@
 
 ### Finance — Accounts
 
-- [ ] **ACCT-01**: Usuario puede crear cuentas con nombre y moneda (ARS o USD)
-- [ ] **ACCT-02**: Usuario puede ver el saldo actual de cada cuenta (calculado desde transacciones)
-- [ ] **ACCT-03**: Usuario puede editar o archivar cuentas existentes
-- [ ] **ACCT-04**: Usuario puede ver resumen de patrimonio total (ARS por un lado, USD por otro)
+- [x] **ACCT-01**: Usuario puede crear cuentas con nombre y moneda (ARS o USD)
+- [x] **ACCT-02**: Usuario puede ver el saldo actual de cada cuenta (calculado desde transacciones)
+- [x] **ACCT-03**: Usuario puede editar o archivar cuentas existentes
+- [x] **ACCT-04**: Usuario puede ver resumen de patrimonio total (ARS por un lado, USD por otro)
 
 ### Finance — Transactions
 
-- [ ] **TRAN-01**: Usuario puede registrar ingresos y egresos con monto, fecha, categoría y nota opcional
-- [ ] **TRAN-02**: Usuario puede registrar transferencias entre sus propias cuentas
-- [ ] **TRAN-03**: Usuario puede indicar que una transacción fue en USD y registrar el tipo de cambio usado
-- [ ] **TRAN-04**: El tipo de cambio para transacciones USD puede obtenerse desde dolarhoy.com (blue, oficial o tarjeta) o ingresarse manualmente
-- [ ] **TRAN-05**: Usuario puede editar y eliminar transacciones existentes
+- [x] **TRAN-01**: Usuario puede registrar ingresos y egresos con monto, fecha, categoría y nota opcional
+- [x] **TRAN-02**: Usuario puede registrar transferencias entre sus propias cuentas
+- [x] **TRAN-03**: Usuario puede indicar que una transacción fue en USD y registrar el tipo de cambio usado
+- [x] **TRAN-04**: El tipo de cambio para transacciones USD puede obtenerse desde dolarhoy.com (blue, oficial o tarjeta) o ingresarse manualmente
+- [x] **TRAN-05**: Usuario puede editar y eliminar transacciones existentes
 
 ### Finance — Categories
 
-- [ ] **CATG-01**: Usuario puede crear categorías personalizadas con nombre e ícono/color
-- [ ] **CATG-02**: Usuario puede editar y eliminar categorías
-- [ ] **CATG-03**: El sistema provee un set de categorías por defecto al crear la cuenta
+- [x] **CATG-01**: Usuario puede crear categorías personalizadas con nombre e ícono/color
+- [x] **CATG-02**: Usuario puede editar y eliminar categorías
+- [x] **CATG-03**: El sistema provee un set de categorías por defecto al crear la cuenta
 
 ### Finance — Visualizations
 
@@ -102,18 +102,18 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SHLL-03 | Phase 2 | Complete |
 | SHLL-04 | Phase 2 | Complete |
 | SHLL-05 | Phase 2 | Complete |
-| ACCT-01 | Phase 3 | Pending |
-| ACCT-02 | Phase 3 | Pending |
-| ACCT-03 | Phase 3 | Pending |
-| ACCT-04 | Phase 3 | Pending |
-| TRAN-01 | Phase 3 | Pending |
-| TRAN-02 | Phase 3 | Pending |
-| TRAN-03 | Phase 3 | Pending |
-| TRAN-04 | Phase 3 | Pending |
-| TRAN-05 | Phase 3 | Pending |
-| CATG-01 | Phase 3 | Pending |
-| CATG-02 | Phase 3 | Pending |
-| CATG-03 | Phase 3 | Pending |
+| ACCT-01 | Phase 3 | Complete |
+| ACCT-02 | Phase 3 | Complete |
+| ACCT-03 | Phase 3 | Complete |
+| ACCT-04 | Phase 3 | Complete |
+| TRAN-01 | Phase 3 | Complete |
+| TRAN-02 | Phase 3 | Complete |
+| TRAN-03 | Phase 3 | Complete |
+| TRAN-04 | Phase 3 | Complete |
+| TRAN-05 | Phase 3 | Complete |
+| CATG-01 | Phase 3 | Complete |
+| CATG-02 | Phase 3 | Complete |
+| CATG-03 | Phase 3 | Complete |
 | VIZL-01 | Phase 4 | Pending |
 | VIZL-02 | Phase 4 | Pending |
 | VIZL-03 | Phase 4 | Pending |
