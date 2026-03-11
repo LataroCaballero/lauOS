@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-02-PLAN.md (Accounts UI — Server Actions, AccountCard, AccountForm, accounts page)
-last_updated: "2026-03-11T01:39:55.247Z"
+stopped_at: Completed 03-03-PLAN.md (Transactions UI — Server Actions, ExchangeRatePicker, TransactionForm, TransactionList, per-account page)
+last_updated: "2026-03-11T01:48:07.872Z"
 last_activity: 2026-03-10 — Plan 02-01 complete (protected shell — navbar, bottom nav, module grid)
 progress:
   total_phases: 4
   completed_phases: 2
   total_plans: 10
-  completed_plans: 8
+  completed_plans: 9
   percent: 14
 ---
 
@@ -56,6 +56,7 @@ Progress: [██░░░░░░░░] 14%
 | Phase 02-dashboard-shell P03 | 4 | 2 tasks | 5 files |
 | Phase 03-finance-data P01 | 162 | 3 tasks | 6 files |
 | Phase 03-finance-data P02 | 211 | 2 tasks | 8 files |
+| Phase 03-finance-data P03 | 305 | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -89,6 +90,8 @@ Recent decisions affecting current work:
 - [Phase 03-finance-data]: pocketbase/ directory at repo root, separate from lauos/ Next.js app
 - [Phase 03-finance-data]: AccountsWithBalancesResult discriminated union — 'error' in result guard for TypeScript narrowing in accounts page
 - [Phase 03-finance-data]: AccountsClient extracted as sibling client-island file — keeps accounts page.tsx as pure RSC
+- [Phase 03-finance-data]: dolarapi.com fetch isolated to fetchDolarRatesAction Server Action — never called from browser; ExchangeRatePicker calls it on mount via useEffect (valid for non-mutating actions in Next.js 15)
+- [Phase 03-finance-data]: Two-leg transfer pattern: create transfer_out → create transfer_in (with out.id) → update out (with in.id); track outRecordId as string primitive (not object | null) to avoid TS18047 null narrowing in catch block
 
 ### Pending Todos
 
@@ -101,6 +104,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-11T01:39:55.245Z
-Stopped at: Completed 03-02-PLAN.md (Accounts UI — Server Actions, AccountCard, AccountForm, accounts page)
+Last session: 2026-03-11T01:48:07.870Z
+Stopped at: Completed 03-03-PLAN.md (Transactions UI — Server Actions, ExchangeRatePicker, TransactionForm, TransactionList, per-account page)
 Resume file: None
