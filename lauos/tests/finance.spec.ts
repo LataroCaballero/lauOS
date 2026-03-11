@@ -52,3 +52,23 @@ test.skip('[CATG-02] delete category with no linked transactions removes it', as
 
 // CATG-03: System provides default categories on account creation (see NOTE above)
 test.skip('[CATG-03] default categories exist after new user is created', async ({ page }) => {})
+
+// VIZL-01: User can see monthly summary with income vs expenses per currency
+test.skip('[VIZL-01] insights page shows ARS summary card with income, expenses, net', async ({ page }) => {})
+test.skip('[VIZL-01] insights page shows USD summary card when USD transactions exist', async ({ page }) => {})
+test.skip('[VIZL-01] transfers excluded from monthly summary totals', async ({ page }) => {})
+
+// VIZL-02: User can see category spending distribution chart for current month
+test.skip('[VIZL-02] donut chart renders with category slices for selected month', async ({ page }) => {})
+test.skip('[VIZL-02] switching to Ingresos tab changes donut chart dataset', async ({ page }) => {})
+test.skip('[VIZL-02] uncategorized transactions appear as Sin categoría slice', async ({ page }) => {})
+
+// VIZL-03: User can see account balance over time as a line chart
+test.skip('[VIZL-03] balance timeline chart renders for selected account', async ({ page }) => {})
+test.skip('[VIZL-03] account selector changes the displayed balance line', async ({ page }) => {})
+
+// VIZL-04: User can see paginated filtered transaction list
+test.skip('[VIZL-04] transaction list shows 25 per page with prev/next buttons', async ({ page }) => {})
+test.skip('[VIZL-04] account filter updates URL search param and filters list', async ({ page }) => {})
+test.skip('[VIZL-04] category filter combined with date range filters list correctly', async ({ page }) => {})
+test.skip('[VIZL-04] URL filter params survive page refresh', async ({ page }) => {})
