@@ -81,11 +81,11 @@ Plans:
   2. Lautaro can see a chart showing how his spending is distributed across categories for the current month
   3. Lautaro can see a line chart showing the balance of any account over time
   4. Lautaro can see a paginated list of recent transactions filtered by account, category, and date range simultaneously
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 04-01: Monthly summary and category distribution chart (income vs. expenses card, category pie/donut chart using shadcn Chart)
-- [ ] 04-02: Balance timeline chart and filtered transaction list (line chart per account, transaction list with account + category + date range filters)
+- [ ] 04-01-PLAN.md — Finance sub-nav layout, insights server actions, /finance/insights page with monthly summary cards and category donut chart (VIZL-01, VIZL-02)
+- [ ] 04-02-PLAN.md — Balance timeline chart and /finance/transactions page with collapsible filters, URL search params, and 25-per-page pagination (VIZL-03, VIZL-04)
 
 ## Progress
 
