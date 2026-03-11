@@ -16,6 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Dashboard Shell** - Navbar, module grid, dark mode, and responsive layout (completed 2026-03-10)
 - [x] **Phase 3: Finance — Data** - Accounts, transactions, and categories with full CRUD (completed 2026-03-11)
 - [x] **Phase 4: Finance — Insights** - Monthly summaries, category charts, balance timeline, and filtered transaction list (completed 2026-03-11)
+- [ ] **Phase 5: Close Audit Gaps** - Add categories to finance sub-nav and create Phase 02 VERIFICATION.md
 
 ## Phase Details
 
@@ -87,6 +88,20 @@ Plans:
 - [x] 04-01-PLAN.md — Finance sub-nav layout, insights server actions, /finance/insights page with monthly summary cards and category donut chart (VIZL-01, VIZL-02)
 - [x] 04-02-PLAN.md — Balance timeline chart and /finance/transactions page with collapsible filters, URL search params, and 25-per-page pagination (VIZL-03, VIZL-04)
 
+### Phase 5: Close Audit Gaps
+**Goal**: All v1.0 audit blockers resolved — categories page is navigable via finance sub-nav, and Phase 02 requirements are formally verified with a VERIFICATION.md.
+**Depends on**: Phase 4
+**Requirements**: CATG-01, CATG-02, SHLL-01, SHLL-02, SHLL-03, SHLL-04, SHLL-05
+**Gap Closure**: Closes gaps from v1.0-MILESTONE-AUDIT.md
+**Success Criteria** (what must be TRUE):
+  1. `/finance/categories` appears as a link in the finance sub-nav and is reachable via normal navigation
+  2. Phase 02 has a VERIFICATION.md with all 5 SHLL requirements formally verified
+**Plans**: 2 plans
+
+Plans:
+- [ ] 05-01-PLAN.md — Add categories link to FinanceSubNav (CATG-01, CATG-02)
+- [ ] 05-02-PLAN.md — Create Phase 02 VERIFICATION.md (SHLL-01 through SHLL-05)
+
 ## Progress
 
 **Execution Order:**
@@ -98,3 +113,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 2. Dashboard Shell | 3/3 | Complete   | 2026-03-10 |
 | 3. Finance — Data | 4/4 | Complete   | 2026-03-11 |
 | 4. Finance — Insights | 2/2 | Complete   | 2026-03-11 |
+| 5. Close Audit Gaps | 0/2 | Pending | — |
