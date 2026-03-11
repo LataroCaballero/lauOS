@@ -64,13 +64,13 @@ Plans:
   4. Lautaro can record a transfer between two of his own accounts and both balances update correctly
   5. For USD transactions, Lautaro can enter the exchange rate used (fetched from dolarhoy.com or entered manually) and it is stored immutably at transaction time
   6. Lautaro can edit or delete any transaction or account, and categories come pre-populated with sensible defaults on first use
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 03-01: PocketBase schema design and validation (accounts, transactions, categories collections — integer centavos, access rules, default categories seed)
-- [ ] 03-02: Accounts UI (account list, create/edit/archive account, per-account balance display, total patrimony summary ARS/USD)
-- [ ] 03-03: Transactions UI (transaction entry form with category selector and USD/ARS toggle, dolarhoy.com rate fetch, transfer flow, edit/delete, transaction list)
-- [ ] 03-04: Categories UI (category list, create/edit/delete with icon and color picker)
+- [ ] 03-01-PLAN.md — PocketBase schema + test stub: accounts/categories/transactions migrations, pb_hooks category seeder, money.ts helpers, finance.spec.ts Wave 0
+- [ ] 03-02-PLAN.md — Accounts UI: account list, create/edit/archive, per-account balance, patrimony summary ARS/USD
+- [ ] 03-03-PLAN.md — Transactions UI: income/expense/transfer form, dolarapi.com rate fetch via Server Action, transaction list, edit/delete
+- [ ] 03-04-PLAN.md — Categories UI: category list, create/edit/delete with emoji icon and color swatch picker
 
 ### Phase 4: Finance — Insights
 **Goal**: Lautaro can understand his financial health at a glance through monthly summaries, spending breakdowns by category, balance history over time, and a filterable transaction history.
