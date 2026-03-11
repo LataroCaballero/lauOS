@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Dashboard Shell** - Navbar, module grid, dark mode, and responsive layout (completed 2026-03-10)
 - [x] **Phase 3: Finance — Data** - Accounts, transactions, and categories with full CRUD (completed 2026-03-11)
 - [x] **Phase 4: Finance — Insights** - Monthly summaries, category charts, balance timeline, and filtered transaction list (completed 2026-03-11)
-- [ ] **Phase 5: Close Audit Gaps** - Add categories to finance sub-nav and create Phase 02 VERIFICATION.md
+- [x] **Phase 5: Close Audit Gaps** - Add categories to finance sub-nav and create Phase 02 VERIFICATION.md (completed 2026-03-11)
 
 ## Phase Details
 
@@ -113,4 +113,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 2. Dashboard Shell | 3/3 | Complete   | 2026-03-10 |
 | 3. Finance — Data | 4/4 | Complete   | 2026-03-11 |
 | 4. Finance — Insights | 2/2 | Complete   | 2026-03-11 |
-| 5. Close Audit Gaps | 1/2 | In Progress|  |
+| 5. Close Audit Gaps | 2/2 | Complete   | 2026-03-11 |
