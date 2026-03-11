@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: "Completed 04-finance-insights/04-01-PLAN.md"
-last_updated: "2026-03-11T13:34:09Z"
-last_activity: 2026-03-11 — Plan 04-01 complete (finance sub-nav, insights actions, monthly summary + donut chart)
+status: complete
+stopped_at: "Completed 04-finance-insights/04-02-PLAN.md"
+last_updated: "2026-03-11T13:48:20Z"
+last_activity: 2026-03-11 — Plan 04-02 complete (balance timeline chart, /finance/transactions page with URL filters + pagination)
 progress:
   total_phases: 4
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 10
   completed_plans: 10
-  percent: 14
+  percent: 100
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-09)
 
 **Core value:** El usuario puede ver y gestionar los aspectos clave de su día a día desde un único lugar, sin depender de apps de terceros.
-**Current focus:** Phase 2 — Dashboard Shell
+**Current focus:** Phase 4 complete — Finance Insights
 
 ## Current Position
 
-Phase: 4 of 4 (Finance Insights)
-Plan: 1 of 2 in current phase (04-01 complete — finance sub-nav, insights actions, monthly summary + donut chart)
-Status: In progress
-Last activity: 2026-03-11 — Plan 04-01 complete (finance sub-nav, insights actions, monthly summary + donut chart)
+Phase: 4 of 4 (Finance Insights) — COMPLETE
+Plan: 2 of 2 in current phase (04-02 complete — balance timeline chart, /finance/transactions with URL filters + pagination)
+Status: Complete
+Last activity: 2026-03-11 — Plan 04-02 complete (balance timeline chart, /finance/transactions page with URL filters + pagination)
 
-Progress: [████████░░] 75%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
@@ -59,6 +59,7 @@ Progress: [████████░░] 75%
 | Phase 03-finance-data P03 | 305 | 2 tasks | 6 files |
 | Phase 03-finance-data P04 | 545 | 2 tasks | 5 files |
 | Phase 04-finance-insights P01 | 4 | 3 tasks | 9 files |
+| Phase 04-finance-insights P02 | 11 | 3 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -100,10 +101,14 @@ Recent decisions affecting current work:
 - [Phase 04-finance-insights]: recharts 2.x installed (not 3.x) — Label center component in PieChart works correctly; no overlay div fallback needed
 - [Phase 04-finance-insights]: CategoryDonutChart uses fill={slice.categoryColor} directly on Cell — inline hex avoids Tailwind v4 dynamic class scanning limitation
 - [Phase 04-finance-insights]: getCategoryDistributionAction filters accounts by currency before building transaction filter — avoids mixed-currency aggregation
+- [04-02]: Running balance algorithm uses pre-range transaction fetch for initialBalance — avoids day-1 spike artifact in balance timeline
+- [04-02]: PocketBase ID validation with /^[a-z0-9]{15}$/i before filter string interpolation — injection guard for getFilteredTransactionsAction
+- [04-02]: Date input uses plain HTML <input type=date> — no date picker library to keep dependencies minimal
+- [04-02]: setParam resets page param on filter change; pagination uses separate setPage helper that preserves filter params
 
 ### Pending Todos
 
-None yet.
+None.
 
 ### Blockers/Concerns
 
@@ -112,6 +117,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-11T13:34:09Z
-Stopped at: "Completed 04-finance-insights/04-01-PLAN.md"
-Resume file: .planning/phases/04-finance-insights/04-02-PLAN.md
+Last session: 2026-03-11T13:48:20Z
+Stopped at: "Completed 04-finance-insights/04-02-PLAN.md"
+Resume file: N/A — Phase 4 complete, v1.0 milestone reached

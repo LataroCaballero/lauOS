@@ -14,8 +14,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation + Auth** - PocketBase on VPS, Next.js scaffold, and working login with persistent session (completed 2026-03-10)
 - [x] **Phase 2: Dashboard Shell** - Navbar, module grid, dark mode, and responsive layout (completed 2026-03-10)
-- [ ] **Phase 3: Finance — Data** - Accounts, transactions, and categories with full CRUD
-- [ ] **Phase 4: Finance — Insights** - Monthly summaries, category charts, balance timeline, and filtered transaction list
+- [x] **Phase 3: Finance — Data** - Accounts, transactions, and categories with full CRUD (completed 2026-03-11)
+- [x] **Phase 4: Finance — Insights** - Monthly summaries, category charts, balance timeline, and filtered transaction list (completed 2026-03-11)
 
 ## Phase Details
 
@@ -84,8 +84,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 04-01-PLAN.md — Finance sub-nav layout, insights server actions, /finance/insights page with monthly summary cards and category donut chart (VIZL-01, VIZL-02)
-- [ ] 04-02-PLAN.md — Balance timeline chart and /finance/transactions page with collapsible filters, URL search params, and 25-per-page pagination (VIZL-03, VIZL-04)
+- [x] 04-01-PLAN.md — Finance sub-nav layout, insights server actions, /finance/insights page with monthly summary cards and category donut chart (VIZL-01, VIZL-02)
+- [x] 04-02-PLAN.md — Balance timeline chart and /finance/transactions page with collapsible filters, URL search params, and 25-per-page pagination (VIZL-03, VIZL-04)
 
 ## Progress
 
@@ -96,5 +96,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation + Auth | 3/3 | Complete   | 2026-03-10 |
 | 2. Dashboard Shell | 3/3 | Complete   | 2026-03-10 |
-| 3. Finance — Data | 2/4 | In Progress|  |
-| 4. Finance — Insights | 1/2 | In Progress|  |
+| 3. Finance — Data | 4/4 | Complete   | 2026-03-11 |
+| 4. Finance — Insights | 2/2 | Complete   | 2026-03-11 |
