@@ -47,7 +47,6 @@ export default async function AccountDetailPage({ params }: PageProps) {
   // Fetch all non-archived accounts (for transfer destination selector)
   const accountRecords = await pb.collection('accounts').getFullList({
     filter: 'archived = false',
-    sort: 'created',
   })
 
   // Compute balance inline

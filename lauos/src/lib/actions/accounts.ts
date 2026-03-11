@@ -100,11 +100,9 @@ export async function getAccountsWithBalancesAction(): Promise<AccountsWithBalan
     // Fetch all non-archived accounts for the current user, sorted by creation date
     const accountRecords = await pb.collection('accounts').getFullList({
       filter: 'archived = false',
-      sort: 'created',
     })
 
     // Fetch ALL transactions for the user (only fields needed for balance calc)
-    // Use a wide perPage to get everything in one request
     const txRecords = await pb.collection('transactions').getFullList({
       fields: 'account,type,amount_centavos',
     })
