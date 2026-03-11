@@ -8,6 +8,7 @@ const FINANCE_NAV_LINKS = [
   { href: '/finance/accounts', label: 'Cuentas' },
   { href: '/finance/insights', label: 'Insights' },
   { href: '/finance/transactions', label: 'Transacciones' },
+  { href: '/finance/categories', label: 'Categorías' },
 ]
 
 export function FinanceSubNav() {
