@@ -1,16 +1,19 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   getMonthlySummaryAction,
   getCategoryDistributionAction,
+  getBalanceTimelineAction,
   type MonthlySummary,
   type CategorySlice,
+  type DailyBalance,
 } from '@/lib/actions/insights'
 import type { AccountWithBalance } from '@/lib/actions/accounts'
 import { MonthlySummaryCard } from '@/components/finance/monthly-summary-card'
 import { CategoryDonutChart } from '@/components/finance/category-donut-chart'
 import { CategoryBadge } from '@/components/finance/category-badge'
+import { BalanceTimelineChart } from '@/components/finance/balance-timeline-chart'
 import { Button } from '@/components/ui/button'
 import {
   Select,
@@ -66,6 +69,22 @@ function buildMonthOptions(): MonthOption[] {
 }
 
 // ---------------------------------------------------------------------------
+// Timeline date range helper
+// ---------------------------------------------------------------------------
+
+function buildDateRange(range: '1m' | '3m' | '6m'): { startDate: string; endDate: string } {
+  const end = new Date()
+  const start = new Date()
+  if (range === '1m') start.setMonth(start.getMonth() - 1)
+  if (range === '3m') start.setMonth(start.getMonth() - 3)
+  if (range === '6m') start.setMonth(start.getMonth() - 6)
+  return {
+    startDate: start.toISOString().slice(0, 10),
+    endDate: end.toISOString().slice(0, 10),
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Props
 // ---------------------------------------------------------------------------
 
@@ -75,6 +94,8 @@ type InsightsClientProps = {
   accounts: AccountWithBalance[]
   initialYear: number
   initialMonth: number
+  initialTimelinePoints: DailyBalance[]
+  initialTimelineCurrency: 'ARS' | 'USD'
 }
 
 // ---------------------------------------------------------------------------
@@ -87,6 +108,8 @@ export function InsightsClient({
   accounts,
   initialYear,
   initialMonth,
+  initialTimelinePoints,
+  initialTimelineCurrency,
 }: InsightsClientProps) {
   const [year, setYear] = useState(initialYear)
   const [month, setMonth] = useState(initialMonth)
@@ -103,8 +126,32 @@ export function InsightsClient({
   const defaultCurrency: 'ARS' | 'USD' = hasCurrencies.ARS ? 'ARS' : 'USD'
   const [chartCurrency] = useState<'ARS' | 'USD'>(defaultCurrency)
 
+  // Timeline state
+  const defaultAccount = accounts.find((a) => a.currency === 'ARS') ?? accounts[0]
+  const [selectedAccountId, setSelectedAccountId] = useState<string>(defaultAccount?.id ?? '')
+  const [timelinePoints, setTimelinePoints] = useState<DailyBalance[]>(initialTimelinePoints)
+  const [timelineCurrency, setTimelineCurrency] = useState<'ARS' | 'USD'>(initialTimelineCurrency)
+  const [timelineLoading, setTimelineLoading] = useState(false)
+  const [timelineRange, setTimelineRange] = useState<'1m' | '3m' | '6m'>('3m')
+
   const monthOptions = buildMonthOptions()
   const currentValue = `${year}-${String(month).padStart(2, '0')}`
+
+  // Fetch timeline when account or range changes
+  useEffect(() => {
+    if (!selectedAccountId) return
+    const { startDate, endDate } = buildDateRange(timelineRange)
+    setTimelineLoading(true)
+    getBalanceTimelineAction({ accountId: selectedAccountId, startDate, endDate }).then(
+      (result) => {
+        if ('points' in result) {
+          setTimelinePoints(result.points)
+          setTimelineCurrency(result.currency)
+        }
+        setTimelineLoading(false)
+      }
+    )
+  }, [selectedAccountId, timelineRange])
 
   async function handleMonthChange(value: string | null) {
     if (!value) return
@@ -234,6 +281,51 @@ export function InsightsClient({
           </ul>
         )}
       </section>
+
+      {/* Balance timeline chart */}
+      {accounts.length > 0 && (
+        <section className={cn('transition-opacity', timelineLoading && 'opacity-50')}>
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-4">
+            <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
+              Evolución de saldo
+            </h2>
+            <div className="flex items-center gap-2">
+              {/* Account selector */}
+              <Select
+                value={selectedAccountId}
+                onValueChange={(v) => { if (v) setSelectedAccountId(v) }}
+              >
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Cuenta" />
+                </SelectTrigger>
+                <SelectContent>
+                  {accounts.map((acc) => (
+                    <SelectItem key={acc.id} value={acc.id}>
+                      {acc.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
+              {/* Range buttons */}
+              <div className="flex items-center gap-1">
+                {(['1m', '3m', '6m'] as const).map((r) => (
+                  <Button
+                    key={r}
+                    size="sm"
+                    variant={timelineRange === r ? 'default' : 'outline'}
+                    onClick={() => setTimelineRange(r)}
+                  >
+                    {r === '1m' ? '1M' : r === '3m' ? '3M' : '6M'}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <BalanceTimelineChart points={timelinePoints} currency={timelineCurrency} />
+        </section>
+      )}
     </div>
   )
 }
