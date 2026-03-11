@@ -113,4 +113,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 2. Dashboard Shell | 3/3 | Complete   | 2026-03-10 |
 | 3. Finance — Data | 4/4 | Complete   | 2026-03-11 |
 | 4. Finance — Insights | 2/2 | Complete   | 2026-03-11 |
-| 5. Close Audit Gaps | 0/2 | Pending | — |
+| 5. Close Audit Gaps | 1/2 | In Progress|  |

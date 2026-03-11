@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: "Completed 04-finance-insights/04-02-PLAN.md"
-last_updated: "2026-03-11T13:54:47.381Z"
+stopped_at: Completed 05-close-audit-gaps/05-01-PLAN.md
+last_updated: "2026-03-11T22:38:07.962Z"
 last_activity: 2026-03-11 — Plan 04-02 complete (balance timeline chart, /finance/transactions page with URL filters + pagination)
 progress:
-  total_phases: 4
+  total_phases: 5
   completed_phases: 4
-  total_plans: 12
-  completed_plans: 12
+  total_plans: 14
+  completed_plans: 13
   percent: 100
 ---
 
@@ -60,6 +60,7 @@ Progress: [██████████] 100%
 | Phase 03-finance-data P04 | 545 | 2 tasks | 5 files |
 | Phase 04-finance-insights P01 | 4 | 3 tasks | 9 files |
 | Phase 04-finance-insights P02 | 11 | 3 tasks | 6 files |
+| Phase 05-close-audit-gaps P01 | 5 | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -105,6 +106,7 @@ Recent decisions affecting current work:
 - [04-02]: PocketBase ID validation with /^[a-z0-9]{15}$/i before filter string interpolation — injection guard for getFilteredTransactionsAction
 - [04-02]: Date input uses plain HTML <input type=date> — no date picker library to keep dependencies minimal
 - [04-02]: setParam resets page param on filter change; pagination uses separate setPage helper that preserves filter params
+- [Phase 05-close-audit-gaps]: Categorías placed last (position 4) in FinanceSubNav — management/config pages appear after primary views, consistent with settings-at-end convention
 
 ### Pending Todos
 
@@ -117,6 +119,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-11T13:48:20Z
-Stopped at: "Completed 04-finance-insights/04-02-PLAN.md"
-Resume file: N/A — Phase 4 complete, v1.0 milestone reached
+Last session: 2026-03-11T22:38:07.960Z
+Stopped at: Completed 05-close-audit-gaps/05-01-PLAN.md
+Resume file: None

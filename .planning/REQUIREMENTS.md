@@ -14,11 +14,11 @@
 
 ### Shell
 
-- [ ] **SHLL-01**: Top navbar muestra links a módulos, nombre de usuario y opción de logout
-- [ ] **SHLL-02**: Página home con grid de widgets clickeables (una card por módulo disponible)
-- [ ] **SHLL-03**: Toggle dark/light mode con preferencia persistente
-- [ ] **SHLL-04**: Layout responsive usable en mobile
-- [ ] **SHLL-05**: Color de acento personalizable desde configuración, persistido en perfil de usuario
+- [x] **SHLL-01**: Top navbar muestra links a módulos, nombre de usuario y opción de logout
+- [x] **SHLL-02**: Página home con grid de widgets clickeables (una card por módulo disponible)
+- [x] **SHLL-03**: Toggle dark/light mode con preferencia persistente
+- [x] **SHLL-04**: Layout responsive usable en mobile
+- [x] **SHLL-05**: Color de acento personalizable desde configuración, persistido en perfil de usuario
 
 ### Finance — Accounts
 
@@ -37,8 +37,8 @@
 
 ### Finance — Categories
 
-- [ ] **CATG-01**: Usuario puede crear categorías personalizadas con nombre e ícono/color
-- [ ] **CATG-02**: Usuario puede editar y eliminar categorías
+- [x] **CATG-01**: Usuario puede crear categorías personalizadas con nombre e ícono/color
+- [x] **CATG-02**: Usuario puede editar y eliminar categorías
 - [x] **CATG-03**: El sistema provee un set de categorías por defecto al crear la cuenta
 
 ### Finance — Visualizations
@@ -97,11 +97,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUTH-02 | Phase 1 | Complete |
 | AUTH-03 | Phase 1 | Complete |
 | AUTH-04 | Phase 1 | Complete |
-| SHLL-01 | Phase 5 | Pending |
-| SHLL-02 | Phase 5 | Pending |
-| SHLL-03 | Phase 5 | Pending |
-| SHLL-04 | Phase 5 | Pending |
-| SHLL-05 | Phase 5 | Pending |
+| SHLL-01 | Phase 5 | Complete |
+| SHLL-02 | Phase 5 | Complete |
+| SHLL-03 | Phase 5 | Complete |
+| SHLL-04 | Phase 5 | Complete |
+| SHLL-05 | Phase 5 | Complete |
 | ACCT-01 | Phase 3 | Complete |
 | ACCT-02 | Phase 3 | Complete |
 | ACCT-03 | Phase 3 | Complete |
@@ -111,8 +111,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TRAN-03 | Phase 3 | Complete |
 | TRAN-04 | Phase 3 | Complete |
 | TRAN-05 | Phase 3 | Complete |
-| CATG-01 | Phase 5 | Pending |
-| CATG-02 | Phase 5 | Pending |
+| CATG-01 | Phase 5 | Complete |
+| CATG-02 | Phase 5 | Complete |
 | CATG-03 | Phase 3 | Complete |
 | VIZL-01 | Phase 4 | Complete |
 | VIZL-02 | Phase 4 | Complete |
