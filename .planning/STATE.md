@@ -3,9 +3,9 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 4 context gathered
-last_updated: "2026-03-11T13:10:42.110Z"
-last_activity: 2026-03-10 — Plan 02-01 complete (protected shell — navbar, bottom nav, module grid)
+stopped_at: "Completed 04-finance-insights/04-01-PLAN.md"
+last_updated: "2026-03-11T13:34:09Z"
+last_activity: 2026-03-11 — Plan 04-01 complete (finance sub-nav, insights actions, monthly summary + donut chart)
 progress:
   total_phases: 4
   completed_phases: 3
@@ -25,12 +25,12 @@ See: .planning/PROJECT.md (updated 2026-03-09)
 
 ## Current Position
 
-Phase: 2 of 4 (Dashboard Shell)
-Plan: 2 of 3 in current phase (02-01 complete — checkpoint approved, ready for 02-02)
+Phase: 4 of 4 (Finance Insights)
+Plan: 1 of 2 in current phase (04-01 complete — finance sub-nav, insights actions, monthly summary + donut chart)
 Status: In progress
-Last activity: 2026-03-10 — Plan 02-01 complete (protected shell — navbar, bottom nav, module grid)
+Last activity: 2026-03-11 — Plan 04-01 complete (finance sub-nav, insights actions, monthly summary + donut chart)
 
-Progress: [██░░░░░░░░] 14%
+Progress: [████████░░] 75%
 
 ## Performance Metrics
 
@@ -58,6 +58,7 @@ Progress: [██░░░░░░░░] 14%
 | Phase 03-finance-data P02 | 211 | 2 tasks | 8 files |
 | Phase 03-finance-data P03 | 305 | 2 tasks | 6 files |
 | Phase 03-finance-data P04 | 545 | 2 tasks | 5 files |
+| Phase 04-finance-insights P01 | 4 | 3 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -95,6 +96,10 @@ Recent decisions affecting current work:
 - [Phase 03-finance-data]: Two-leg transfer pattern: create transfer_out → create transfer_in (with out.id) → update out (with in.id); track outRecordId as string primitive (not object | null) to avoid TS18047 null narrowing in catch block
 - [Phase 03-finance-data]: CategoryBadge uses inline hex alpha style (color + '22'/'44') — Tailwind v4 cannot scan dynamic class values at build time
 - [Phase 03-finance-data]: CategoriesClient extracted as sibling client island — consistent with AccountsClient pattern from 03-02
+- [Phase 04-finance-insights]: Finance layout sub-nav uses FinanceSubNav client sub-component as sibling file (finance-sub-nav.tsx) — keeps layout.tsx a Server Component while enabling usePathname active state
+- [Phase 04-finance-insights]: recharts 2.x installed (not 3.x) — Label center component in PieChart works correctly; no overlay div fallback needed
+- [Phase 04-finance-insights]: CategoryDonutChart uses fill={slice.categoryColor} directly on Cell — inline hex avoids Tailwind v4 dynamic class scanning limitation
+- [Phase 04-finance-insights]: getCategoryDistributionAction filters accounts by currency before building transaction filter — avoids mixed-currency aggregation
 
 ### Pending Todos
 
@@ -107,6 +112,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-11T13:10:42.108Z
-Stopped at: Phase 4 context gathered
-Resume file: .planning/phases/04-finance-insights/04-CONTEXT.md
+Last session: 2026-03-11T13:34:09Z
+Stopped at: "Completed 04-finance-insights/04-01-PLAN.md"
+Resume file: .planning/phases/04-finance-insights/04-02-PLAN.md

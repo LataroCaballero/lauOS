@@ -97,4 +97,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Foundation + Auth | 3/3 | Complete   | 2026-03-10 |
 | 2. Dashboard Shell | 3/3 | Complete   | 2026-03-10 |
 | 3. Finance — Data | 2/4 | In Progress|  |
-| 4. Finance — Insights | 0/2 | Not started | - |
+| 4. Finance — Insights | 1/2 | In Progress|  |

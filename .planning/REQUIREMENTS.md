@@ -43,8 +43,8 @@
 
 ### Finance — Visualizations
 
-- [ ] **VIZL-01**: Usuario puede ver resumen mensual con total de ingresos vs egresos
-- [ ] **VIZL-02**: Usuario puede ver gráfico de distribución de gastos por categoría del mes actual
+- [x] **VIZL-01**: Usuario puede ver resumen mensual con total de ingresos vs egresos
+- [x] **VIZL-02**: Usuario puede ver gráfico de distribución de gastos por categoría del mes actual
 - [ ] **VIZL-03**: Usuario puede ver evolución de saldo en el tiempo como gráfico de línea
 - [ ] **VIZL-04**: Usuario puede ver listado de transacciones recientes con filtros por cuenta, categoría y rango de fechas
 
@@ -114,8 +114,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CATG-01 | Phase 3 | Complete |
 | CATG-02 | Phase 3 | Complete |
 | CATG-03 | Phase 3 | Complete |
-| VIZL-01 | Phase 4 | Pending |
-| VIZL-02 | Phase 4 | Pending |
+| VIZL-01 | Phase 4 | Complete |
+| VIZL-02 | Phase 4 | Complete |
 | VIZL-03 | Phase 4 | Pending |
 | VIZL-04 | Phase 4 | Pending |
 
