@@ -1,47 +1,36 @@
 import { test, expect } from '@playwright/test'
-
-// Helper: log in before each test that requires auth
-async function loginAs(page: any) {
-  await page.goto('/login')
-  await page.fill('input[type="email"]', process.env.TEST_EMAIL ?? 'test@example.com')
-  await page.fill('input[type="password"]', process.env.TEST_PASSWORD ?? 'testpassword')
-  await page.click('button[type="submit"]')
-  await page.waitForURL(/\/(dashboard|$)/)
-}
+import path from 'path'
 
 test.describe('navbar', () => {
-  test.beforeEach(async ({ page }) => { await loginAs(page) })
-
   test('shows module links, user name, and logout option on every protected page', async ({ page }) => {
     await page.goto('/dashboard')
-    // Navbar is visible
-    await expect(page.locator('nav[aria-label="main navigation"]')).toBeVisible()
-    // User name rendered somewhere in the navbar
-    // (actual selector tightened once navbar is implemented)
+    // Navbar is visible (rendered as <header aria-label="main navigation">)
+    await expect(page.locator('[aria-label="main navigation"]')).toBeVisible()
+    // User name rendered in the navbar
     await expect(page.locator('[data-testid="navbar-username"]')).toBeVisible()
-    // Logout exists
+    // Open user menu to reveal logout button
+    await page.locator('[data-testid="user-menu-trigger"]').click()
     await expect(page.locator('[data-testid="logout-button"]')).toBeVisible()
   })
 })
 
 test.describe('module grid', () => {
-  test.beforeEach(async ({ page }) => { await loginAs(page) })
-
   test('home page shows module cards and clicking one navigates to module route', async ({ page }) => {
     await page.goto('/dashboard')
     const card = page.locator('[data-testid="module-card-finance"]')
     await expect(card).toBeVisible()
     await card.click()
-    await expect(page).toHaveURL('/finance')
+    // /finance redirects to /finance/accounts
+    await expect(page).toHaveURL(/\/finance/)
   })
 })
 
 test.describe('dark mode', () => {
-  test.beforeEach(async ({ page }) => { await loginAs(page) })
-
   test('toggle applies dark class immediately and preference survives refresh', async ({ page }) => {
     await page.goto('/dashboard')
     const toggle = page.locator('[data-testid="theme-toggle"]')
+    // Ensure we start in light mode
+    await page.evaluate(() => document.documentElement.classList.remove('dark'))
     await toggle.click()
     await expect(page.locator('html')).toHaveClass(/dark/)
     await page.reload()
@@ -53,7 +42,6 @@ test.describe('dark mode', () => {
 
 test.describe('mobile layout', () => {
   test.use({ viewport: { width: 375, height: 812 } })
-  test.beforeEach(async ({ page }) => { await loginAs(page) })
 
   test('no horizontal scroll on 375px viewport and bottom nav is visible', async ({ page }) => {
     await page.goto('/dashboard')
@@ -65,10 +53,10 @@ test.describe('mobile layout', () => {
 })
 
 test.describe('accent color', () => {
-  test.beforeEach(async ({ page }) => { await loginAs(page) })
-
   test('accent color change reflects in UI immediately and persists after refresh', async ({ page }) => {
     await page.goto('/settings')
+    // Switch to the Appearance tab (accent swatches live there)
+    await page.getByRole('tab', { name: /apariencia/i }).click()
     const blueAccent = page.locator('[data-testid="accent-swatch-blue"]')
     await blueAccent.click()
     // The --primary CSS variable should be updated on :root

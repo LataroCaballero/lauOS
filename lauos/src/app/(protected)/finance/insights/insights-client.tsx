@@ -296,7 +296,10 @@ export function InsightsClient({
                 onValueChange={(v) => { if (v) setSelectedAccountId(v) }}
               >
                 <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Cuenta" />
+                  <SelectValue
+                    placeholder="Cuenta"
+                    renderValue={(v) => accounts.find((a) => a.id === v)?.name ?? v}
+                  />
                 </SelectTrigger>
                 <SelectContent>
                   {accounts.map((acc) => (

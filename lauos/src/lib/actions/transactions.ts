@@ -5,40 +5,55 @@ import { revalidatePath } from 'next/cache'
 
 // ---------------------------------------------------------------------------
 // fetchDolarRatesAction
-// Fetches dolarapi.com server-side ONLY. Never call from client code.
+// Tries dolarapi.com/v1 first, falls back to criptoya.com. Server-side only.
 // ---------------------------------------------------------------------------
+
+async function fetchFromDolarApi(): Promise<{ blue: number; oficial: number; tarjeta: number } | null> {
+  try {
+    const res = await fetch('https://dolarapi.com/v1/dolares', {
+      next: { revalidate: 300 },
+    })
+    if (!res.ok) return null
+    const data: Array<{ casa: string; venta: number | null }> = await res.json()
+    const find = (casa: string) => data.find((d) => d.casa === casa)?.venta ?? null
+    const blue = find('blue')
+    const oficial = find('oficial')
+    const tarjeta = find('tarjeta')
+    if (blue === null || oficial === null || tarjeta === null) return null
+    return { blue, oficial, tarjeta }
+  } catch {
+    return null
+  }
+}
+
+async function fetchFromCriptoya(): Promise<{ blue: number; oficial: number; tarjeta: number } | null> {
+  try {
+    const res = await fetch('https://criptoya.com/api/dolar', {
+      next: { revalidate: 300 },
+    })
+    if (!res.ok) return null
+    const data: {
+      blue?: { ask?: number }
+      oficial?: { ask?: number }
+      tarjeta?: { price?: number }
+    } = await res.json()
+    const blue = data.blue?.ask ?? null
+    const oficial = data.oficial?.ask ?? null
+    const tarjeta = data.tarjeta?.price ?? null
+    if (blue === null || oficial === null || tarjeta === null) return null
+    return { blue, oficial, tarjeta }
+  } catch {
+    return null
+  }
+}
 
 export async function fetchDolarRatesAction(): Promise<{
   rates?: { blue: number; oficial: number; tarjeta: number }
   error?: string
 }> {
-  try {
-    const res = await fetch('https://dolarapi.com/api/dolares', {
-      next: { revalidate: 300 },
-    })
-
-    if (!res.ok) {
-      return { error: 'No se pudo obtener la cotización. Ingresala manualmente.' }
-    }
-
-    const data: Array<{ casa: string; venta: number | null; compra: number | null }> =
-      await res.json()
-
-    const find = (casa: string): number | null =>
-      data.find((d) => d.casa === casa)?.venta ?? null
-
-    const blue = find('blue')
-    const oficial = find('oficial')
-    const tarjeta = find('tarjeta')
-
-    if (blue === null || oficial === null || tarjeta === null) {
-      return { error: 'No se pudo obtener la cotización. Ingresala manualmente.' }
-    }
-
-    return { rates: { blue, oficial, tarjeta } }
-  } catch {
-    return { error: 'No se pudo obtener la cotización. Ingresala manualmente.' }
-  }
+  const rates = (await fetchFromDolarApi()) ?? (await fetchFromCriptoya())
+  if (rates) return { rates }
+  return { error: 'No se pudo obtener la cotización. Ingresala manualmente.' }
 }
 
 // ---------------------------------------------------------------------------

@@ -20,8 +20,7 @@ export const useThemeStore = create<ThemeState>()(
     }),
     {
       name: 'lauos-theme',
-      // Only isDark persists to localStorage — accent comes from PocketBase
-      partialize: (state) => ({ isDark: state.isDark }),
+      partialize: (state) => ({ isDark: state.isDark, accent: state.accent }),
     }
   )
 )

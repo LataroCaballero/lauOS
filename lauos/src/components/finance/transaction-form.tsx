@@ -26,8 +26,8 @@ type TransactionType = 'income' | 'expense' | 'transfer'
 
 type TransactionFormProps = {
   mode: 'create' | 'edit'
-  accountId: string
-  accountCurrency: 'ARS' | 'USD'
+  accountId?: string
+  accountCurrency?: 'ARS' | 'USD'
   allAccounts: Account[]
   categories: Category[]
   initialValues?: {
@@ -48,8 +48,8 @@ function todayISO(): string {
 
 export function TransactionForm({
   mode,
-  accountId,
-  accountCurrency,
+  accountId: accountIdProp,
+  accountCurrency: accountCurrencyProp,
   allAccounts,
   categories,
   initialValues,
@@ -63,6 +63,7 @@ export function TransactionForm({
   )
   const [date, setDate] = useState<string>(initialValues?.date?.split(' ')[0] ?? todayISO())
   const [categoryId, setCategoryId] = useState<string>(initialValues?.categoryId ?? '')
+  const [selectedAccountId, setSelectedAccountId] = useState<string>(accountIdProp ?? '')
   const [toAccountId, setToAccountId] = useState<string>('')
   const [note, setNote] = useState<string>(initialValues?.note ?? '')
   const [exchangeRate, setExchangeRate] = useState<string>(
@@ -71,12 +72,21 @@ export function TransactionForm({
   const [error, setError] = useState<string | null>(null)
   const [isPending, startTransition] = useTransition()
 
+  const accountId = accountIdProp ?? selectedAccountId
+  const accountCurrency =
+    accountCurrencyProp ?? allAccounts.find((a) => a.id === accountId)?.currency ?? 'ARS'
+
   // Accounts available as transfer destination (exclude current account)
   const transferAccounts = allAccounts.filter((a) => a.id !== accountId)
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setError(null)
+
+    if (!accountIdProp && !selectedAccountId) {
+      setError('Seleccioná una cuenta')
+      return
+    }
 
     if (!amount || parseFloat(amount) <= 0) {
       setError('El monto debe ser mayor a 0')
@@ -154,6 +164,32 @@ export function TransactionForm({
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      {/* Account selector — shown only when accountId is not pre-set */}
+      {!accountIdProp && mode === 'create' && (
+        <div className="flex flex-col gap-1.5">
+          <Label htmlFor="tx-account">Cuenta</Label>
+          <Select
+            value={selectedAccountId}
+            onValueChange={(v) => {
+              setSelectedAccountId(v ?? '')
+              setExchangeRate('')
+            }}
+            disabled={isPending}
+          >
+            <SelectTrigger id="tx-account" className="w-full">
+              <SelectValue placeholder="Seleccionar cuenta" />
+            </SelectTrigger>
+            <SelectContent>
+              {allAccounts.map((acc) => (
+                <SelectItem key={acc.id} value={acc.id}>
+                  {acc.name} ({acc.currency})
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+      )}
+
       {/* Type selector — hidden in edit mode */}
       {mode === 'create' && (
         <div className="flex flex-col gap-1.5">
@@ -213,7 +249,13 @@ export function TransactionForm({
             disabled={isPending}
           >
             <SelectTrigger id="tx-category" className="w-full">
-              <SelectValue placeholder="Seleccionar categoría" />
+              <SelectValue
+                placeholder="Seleccionar categoría"
+                renderValue={(v) => {
+                  const cat = categories.find((c) => c.id === v)
+                  return cat ? `${cat.icon} ${cat.name}` : v
+                }}
+              />
             </SelectTrigger>
             <SelectContent>
               {categories.map((cat) => (

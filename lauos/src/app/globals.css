@@ -54,8 +54,8 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.88 0.18 145);
+  --primary-foreground: oklch(0.12 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -71,7 +71,7 @@
   --chart-3: oklch(0.546 0.245 262.881);
   --chart-4: oklch(0.488 0.243 264.376);
   --chart-5: oklch(0.424 0.199 265.638);
-  --radius: 0.625rem;
+  --radius: 0.875rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -83,20 +83,20 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.87 0.00 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.371 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: oklch(0.20 0.045 225);
+  --foreground: oklch(0.96 0.008 165);
+  --card: oklch(0.25 0.038 225);
+  --card-foreground: oklch(0.96 0.008 165);
+  --popover: oklch(0.25 0.038 225);
+  --popover-foreground: oklch(0.96 0.008 165);
+  --primary: oklch(0.88 0.18 145);
+  --primary-foreground: oklch(0.12 0 0);
+  --secondary: oklch(0.30 0.035 225);
+  --secondary-foreground: oklch(0.96 0.008 165);
+  --muted: oklch(0.30 0.035 225);
+  --muted-foreground: oklch(0.65 0.015 200);
+  --accent: oklch(0.34 0.03 225);
+  --accent-foreground: oklch(0.96 0.008 165);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
@@ -106,12 +106,12 @@
   --chart-3: oklch(0.546 0.245 262.881);
   --chart-4: oklch(0.488 0.243 264.376);
   --chart-5: oklch(0.424 0.199 265.638);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar: oklch(0.25 0.038 225);
+  --sidebar-foreground: oklch(0.96 0.008 165);
+  --sidebar-primary: oklch(0.88 0.18 145);
+  --sidebar-primary-foreground: oklch(0.12 0 0);
+  --sidebar-accent: oklch(0.30 0.035 225);
+  --sidebar-accent-foreground: oklch(0.96 0.008 165);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
@@ -120,10 +120,90 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
   html {
-    @apply font-sans;
+    /* Fallback background for pages without GlobalBackground */
+    @apply bg-background font-sans;
+  }
+  body {
+    /* Transparent so GlobalBackground (fixed z-0) shows through */
+    @apply text-foreground;
+    background: transparent;
   }
 }
+
+/* ============================================================
+   Frosted Glass System
+   ============================================================ */
+
+.frosted-glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    inset 0 0 30px rgba(0, 0, 0, 0.04),
+    0 4px 24px rgba(0, 0, 0, 0.06);
+  background-image:
+    linear-gradient(to top right, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='0.15'/%3E%3C/svg%3E");
+  background-size: cover, 182px;
+  background-repeat: no-repeat, repeat;
+}
+
+.dark .frosted-glass {
+  background-color: rgba(28, 32, 52, 0.45);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 0 30px rgba(0, 0, 0, 0.20),
+    0 4px 24px rgba(0, 0, 0, 0.30);
+  background-image:
+    linear-gradient(to top right, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='0.15'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   Markdown body styles (.markdown-body)
+   ============================================================ */
+
+.markdown-body { line-height: 1.7; }
+.markdown-body h1 { font-size: 1.5rem; font-weight: 700; margin: 1rem 0 0.5rem; }
+.markdown-body h2 { font-size: 1.25rem; font-weight: 600; margin: 0.875rem 0 0.4rem; }
+.markdown-body h3 { font-size: 1.05rem; font-weight: 600; margin: 0.75rem 0 0.3rem; }
+.markdown-body p { margin-bottom: 0.75rem; }
+.markdown-body ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 0.75rem; }
+.markdown-body ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 0.75rem; }
+.markdown-body li { margin-bottom: 0.2rem; }
+.markdown-body code {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.35rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.875em;
+}
+.dark .markdown-body code { background: rgba(255, 255, 255, 0.1); }
+.markdown-body pre {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  overflow-x: auto;
+}
+.dark .markdown-body pre { background: rgba(255, 255, 255, 0.07); }
+.markdown-body pre code { background: none; padding: 0; }
+.markdown-body blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: 1rem;
+  color: var(--muted-foreground);
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+.markdown-body hr { border: none; border-top: 1px solid var(--border); margin: 1rem 0; }
+.markdown-body strong { font-weight: 700; }
+.markdown-body em { font-style: italic; }
+.markdown-body del { text-decoration: line-through; opacity: 0.7; }
+.markdown-body a { text-decoration: underline; text-underline-offset: 3px; }
+.markdown-body table { width: 100%; border-collapse: collapse; margin-bottom: 0.75rem; font-size: 0.875rem; }
+.markdown-body th { border: 1px solid var(--border); padding: 0.4rem 0.75rem; font-weight: 600; text-align: left; background: rgba(0,0,0,0.04); }
+.dark .markdown-body th { background: rgba(255,255,255,0.05); }
+.markdown-body td { border: 1px solid var(--border); padding: 0.4rem 0.75rem; }
+.markdown-body input[type="checkbox"] { margin-right: 0.35rem; }

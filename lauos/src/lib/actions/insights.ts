@@ -128,7 +128,7 @@ export async function getCategoryDistributionAction(params: {
 
     const txs = await pb.collection('transactions').getFullList({
       filter: `user = "${userId}" && date >= "${start}" && date <= "${end}" && type = "${type}" && (${accountFilter})`,
-      fields: 'amount_centavos,category',
+      fields: 'amount_centavos,category,expand',
       expand: 'category',
     })
 

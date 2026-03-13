@@ -7,7 +7,7 @@ import AppearanceTab from '@/components/settings/appearance-tab'
 export default async function SettingsPage() {
   const pb = await createServerClient()
   if (!pb.authStore.isValid) redirect('/login')
-  const user = pb.authStore.record!
+  const user = await pb.collection('users').getOne(pb.authStore.record!.id)
   const avatarUrl = user.avatar
     ? pb.files.getURL(user, user.avatar as string, { thumb: '128x128' })
     : null

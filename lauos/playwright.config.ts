@@ -12,12 +12,21 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   projects: [
+    // Login once and save auth state to .auth/user.json
+    {
+      name: 'setup',
+      testMatch: /auth\.setup\.ts/,
+    },
+    // All spec tests run with the stored auth session
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: '.auth/user.json',
+      },
+      dependencies: ['setup'],
     },
   ],
-  // Starts the Next.js dev server before running tests
   webServer: {
     command: 'npm run dev -- -p 3005',
     url: 'http://localhost:3005',

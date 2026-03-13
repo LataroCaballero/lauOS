@@ -2,11 +2,18 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { useSearchParams, useRouter, usePathname } from 'next/navigation'
-import { ChevronDown, ChevronUp } from 'lucide-react'
+import { ChevronDown, ChevronUp, PlusIcon } from 'lucide-react'
 import { getFilteredTransactionsAction, type TransactionRow } from '@/lib/actions/insights'
 import type { AccountWithBalance } from '@/lib/actions/accounts'
 import { CategoryBadge } from '@/components/finance/category-badge'
+import { TransactionForm } from '@/components/finance/transaction-form'
 import { Button } from '@/components/ui/button'
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
 import {
   Select,
   SelectContent,
@@ -60,6 +67,7 @@ export function TransactionsClient({
   const [data, setData] = useState(initialData)
   const [filtersOpen, setFiltersOpen] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [newTxOpen, setNewTxOpen] = useState(false)
 
   // URL param helper — resets page on filter change
   const setParam = useCallback(
@@ -120,16 +128,40 @@ export function TransactionsClient({
             </span>
           )}
         </div>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setFiltersOpen((o) => !o)}
-          className="flex items-center gap-1"
-        >
-          Filtros
-          {filtersOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button size="sm" onClick={() => setNewTxOpen(true)}>
+            <PlusIcon className="h-4 w-4" />
+            Nueva transacción
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setFiltersOpen((o) => !o)}
+            className="flex items-center gap-1"
+          >
+            Filtros
+            {filtersOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+          </Button>
+        </div>
       </div>
+
+      {/* Nueva transacción dialog */}
+      <Dialog open={newTxOpen} onOpenChange={setNewTxOpen}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle>Nueva transacción</DialogTitle>
+          </DialogHeader>
+          <TransactionForm
+            mode="create"
+            allAccounts={accounts}
+            categories={categories}
+            onSuccess={() => {
+              setNewTxOpen(false)
+              router.refresh()
+            }}
+          />
+        </DialogContent>
+      </Dialog>
 
       {/* Collapsible filter panel */}
       {filtersOpen && (
@@ -143,7 +175,10 @@ export function TransactionsClient({
                 onValueChange={(v) => setParam('account', v === 'all' ? null : v)}
               >
                 <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Todas las cuentas" />
+                  <SelectValue
+                    placeholder="Todas las cuentas"
+                    renderValue={(v) => v === 'all' ? 'Todas las cuentas' : (accounts.find((a) => a.id === v)?.name ?? v)}
+                  />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">Todas las cuentas</SelectItem>
@@ -164,7 +199,10 @@ export function TransactionsClient({
                 onValueChange={(v) => setParam('category', v === 'all' ? null : v)}
               >
                 <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Todas las categorías" />
+                  <SelectValue
+                    placeholder="Todas las categorías"
+                    renderValue={(v) => v === 'all' ? 'Todas las categorías' : (categories.find((c) => c.id === v)?.name ?? v)}
+                  />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">Todas las categorías</SelectItem>

@@ -8,7 +8,10 @@ export default function NavLinks() {
   const pathname = usePathname()
 
   return (
-    <nav className="hidden md:flex items-center gap-1" aria-label="module navigation">
+    <nav
+      className="hidden md:flex items-center frosted-glass rounded-full p-1 gap-0.5"
+      aria-label="module navigation"
+    >
       {MODULES.map((mod) => {
         const isActive = pathname.startsWith(mod.href)
         return (
@@ -16,13 +19,12 @@ export default function NavLinks() {
             key={mod.id}
             href={mod.href}
             className={cn(
-              'flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium transition-colors',
+              'px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-200',
               isActive
-                ? 'bg-primary/10 text-primary'
-                : 'text-muted-foreground hover:text-foreground hover:bg-accent'
+                ? 'bg-white/90 dark:bg-white/15 shadow-sm text-foreground'
+                : 'text-muted-foreground hover:text-foreground hover:bg-white/40 dark:hover:bg-white/10'
             )}
           >
-            <mod.Icon className="h-4 w-4" />
             {mod.name}
           </Link>
         )

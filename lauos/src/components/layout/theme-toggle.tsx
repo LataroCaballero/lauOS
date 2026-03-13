@@ -8,7 +8,7 @@ export default function ThemeToggle() {
 
   return (
     <Button
-      variant="ghost"
+      variant="outline"
       size="icon"
       onClick={toggleDark}
       data-testid="theme-toggle"

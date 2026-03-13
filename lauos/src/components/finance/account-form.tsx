@@ -77,7 +77,10 @@ export function AccountForm({ mode, initialValues, onSuccess }: AccountFormProps
           disabled={mode === 'edit'}
         >
           <SelectTrigger id="account-currency" className="w-full">
-            <SelectValue placeholder="Seleccionar moneda" />
+            <SelectValue
+              placeholder="Seleccionar moneda"
+              renderValue={(v) => v === 'ARS' ? 'ARS — Peso argentino' : 'USD — Dólar estadounidense'}
+            />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="ARS">ARS — Peso argentino</SelectItem>

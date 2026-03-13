@@ -11,6 +11,16 @@ const ACCENT_VARS: Record<AccentColor, string> = {
   orange:  'oklch(0.72 0.20 60)',
 }
 
+// Raw RGB triplets for use in rgba() gradients (matches GlobalBackground)
+const ACCENT_RGB: Record<AccentColor, string> = {
+  yellow: '200, 155, 0',
+  blue:   '59, 130, 246',
+  green:  '34, 197, 94',
+  purple: '168, 85, 247',
+  red:    '239, 68, 68',
+  orange: '249, 115, 22',
+}
+
 export default function ThemeProvider({
   children,
   initialAccent,
@@ -30,11 +40,15 @@ export default function ThemeProvider({
     document.documentElement.classList.toggle('dark', isDark)
   }, [isDark])
 
-  // Apply accent CSS variable on :root — overrides the default --primary
+  // Apply accent CSS variables on :root — overrides the default --primary
   useEffect(() => {
     document.documentElement.style.setProperty(
       '--primary',
       ACCENT_VARS[accent] ?? ACCENT_VARS.yellow
+    )
+    document.documentElement.style.setProperty(
+      '--accent-glow-rgb',
+      ACCENT_RGB[accent] ?? ACCENT_RGB.yellow
     )
   }, [accent])
 

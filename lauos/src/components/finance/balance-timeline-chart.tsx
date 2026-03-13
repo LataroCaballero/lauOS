@@ -20,7 +20,7 @@ type BalanceTimelineChartProps = {
 // ---------------------------------------------------------------------------
 
 const chartConfig = {
-  balance: { label: 'Saldo', color: 'var(--color-accent)' },
+  balance: { label: 'Saldo', color: 'var(--primary)' },
 } satisfies ChartConfig
 
 // ---------------------------------------------------------------------------
